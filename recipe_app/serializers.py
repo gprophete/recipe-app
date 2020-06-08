@@ -30,29 +30,17 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class FeedSerializer(serializers.ModelSerializer):
-    directions = DirectionSerializer(
-        many= False,
-        read_only=True)
-    ingredients = IngredientSerializer(
-        many= False,
-        read_only=True)
     comments = CommentSerializer(
         many= True,
         read_only=True)
     claps = ClapSerializer(
         many= True,
         read_only=True)
-    recipes = RecipeSerializer(
-        many= False,
-        required=True)
     class Meta:
         model = Recipe
         fields = (
             'title',
             'image_url',
             'tags',
-            'directions',
-            'ingredients',
             'comments',
-            'claps',
-            'recipes')
+            'claps')

@@ -8,6 +8,7 @@ router.register('directions', views.DirectionView)
 router.register('ingredients', views.IngredientView)
 router.register('comments', views.CommentView)
 router.register('claps', views.ClapView)
+router.register('feed', views.FeedView)
 
 
 urlpatterns = [

@@ -4,7 +4,7 @@ from .serializers import DirectionSerializer, \
     RecipeSerializer, \
     CommentSerializer, \
     ClapSerializer, \
-    IngredientSerializer
+    IngredientSerializer, FeedSerializer
 
 from .models import Recipe, \
     Direction, \
@@ -32,5 +32,9 @@ class ClapView(viewsets.ModelViewSet):
 class CommentView(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+class FeedView(viewsets.ModelViewSet):
+    queryset = Recipe.objects.all()
+    serializer_class = FeedSerializer
 
 
