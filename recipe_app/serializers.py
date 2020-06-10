@@ -25,9 +25,35 @@ class ClapSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class RecipeSerializer(serializers.ModelSerializer):
+
+    comments = CommentSerializer(
+        many=True,
+        read_only=True
+    )
+    claps = ClapSerializer(
+        many=True,
+        read_only=True
+    )
+    directions = DirectionSerializer(
+        many=True,
+        read_only=True
+    )
+    ingredients = IngredientSerializer(
+        many=True,
+        read_only=True
+    )
+
     class Meta:
         model = Recipe
-        fields = '__all__'
+        fields = (
+            'id',
+            'title',
+            'image_url',
+            'comments',
+            'claps',
+            'directions',
+            'ingredients',
+        )
 
 class FeedSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(
@@ -39,8 +65,10 @@ class FeedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = (
+            'id',
             'title',
             'image_url',
             'tags',
             'comments',
-            'claps')
+            'claps'
+        )

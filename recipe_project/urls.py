@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.FrontendAppView.as_view()),
     path('api/v1/', include('recipe_app.urls')),
-    re_path(r'^.*$', views.FrontendAppView.as_view()), #
+    re_path(r'^.*$', views.FrontendAppView.as_view()),
 ]

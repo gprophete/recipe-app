@@ -13,10 +13,14 @@ export default class Feed extends Component {
     }
 
     getFeedData = async () => {
-        const res = await axios.get(`/api/v1/feed`)
-        const newState = { ...this.state }
-        newState.recipes = res.data
-        this.setState(newState)
+        try {
+            const res = await axios.get(`/api/v1/feed/`)
+            const newState = { ...this.state }
+            newState.recipes = res.data
+            this.setState(newState)
+        } catch (error) {
+            console.log('failed to get recipes')
+        }
     }
 
     render() {
@@ -25,9 +29,23 @@ export default class Feed extends Component {
                 {this.state.recipes.map((recipe) => {
                     return (
                         <div>
-                        <h3>{recipe.title}</h3>
-                        <img>{recipe.image.url}</img>
-                        <p>{recipe.tags}</p>
+                            <Link to={`/recipe/${recipe.id}/`}>
+                            <h3>{recipe.title}</h3>
+                            <img src={recipe.image_url}/>
+                            <p>{recipe.tags}</p>
+                            <div>
+                                
+                                {recipe.comments.map((comment)=>{
+                                    return(
+                                        <div>
+                                            Comment: {comment.content}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div>Clap:{recipe.claps.length}</div>
+                            </Link>
                         </div>
 
                     )

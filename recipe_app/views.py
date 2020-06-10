@@ -4,7 +4,8 @@ from .serializers import DirectionSerializer, \
     RecipeSerializer, \
     CommentSerializer, \
     ClapSerializer, \
-    IngredientSerializer, FeedSerializer
+    IngredientSerializer, \
+    FeedSerializer
 
 from .models import Recipe, \
     Direction, \
