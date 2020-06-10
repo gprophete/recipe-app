@@ -44,39 +44,45 @@ export default class Recipe extends Component {
     render() {
         return (
             <div>
-                <h2>Single Recipe</h2>
-                <h3>{this.state.recipe.title}</h3>
-                <img src={this.state.recipe.image_url} width='200' />
-                <div>
-                    {this.state.recipe.ingredients.map((ingredient) => {
-                        return (
-                            <div>
-                                <div>{ingredient.items}</div>
-                            </div>
-                        )
-                    })}
+                <h2>Let's get cooking</h2>
+                <div class='recipe-header'>
+                    <h3>{this.state.recipe.title}</h3>
+                    <img src={this.state.recipe.image_url} width='200' />
                 </div>
-                <div>
-                    {this.state.recipe.directions.map((direction) => {
-                        return (
-                            <div>
+                <div class='container'>
+                    <div class='ingredient'>
+                        {this.state.recipe.ingredients.map((ingredient) => {
+                            return (
                                 <div>
-                                    <div>{direction.steps}</div>
-                                    <div>{direction.prep_time}</div>
-                                    <div>{direction.servings}</div>
+                                    <div>{ingredient.items}</div>
                                 </div>
+                            )
+                        })}
+                    </div>
+                    <div class='direction'>
+                        {this.state.recipe.directions.map((direction) => {
+                            return (
+                                <div>
+
+                                    <div>{direction.steps}</div>
+                                    <div class='time'>{direction.prep_time}</div>
+                                    <div class ='serving'>{direction.servings}</div>
+
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div class='comment'>
+                    {this.state.recipe.comments.map((comment) => {
+                        return (
+                            <div>
+                                Comment:{comment.content}
+                                <div>name:{comment.name}</div>
                             </div>
                         )
                     })}
                 </div>
-                {this.state.recipe.comments.map((comment) => {
-                    return (
-                        <div>
-                            Comment:{comment.content}
-                            <div>name:{comment.name}</div>
-                        </div>
-                    )
-                })}
                 <div>Claps:{this.state.recipe.claps.length}</div>
 
             </div >
