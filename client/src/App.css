@@ -81,12 +81,7 @@ img {
   margin: 20px;
   font-size: 24px;
 }
-.comment {
-  border-left-style: outset;
-  margin: 0;
-  font-size: 18px;
-  width: 500px;
-}
+
 
 nav {
   display:flex;
@@ -103,12 +98,16 @@ link:hover{
   background-color: rgb(21, 21, 136);
 }
 .comment-container {
-  margin: 0 0 0 500px;
+  margin-left: 120px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: column-reverse;
-
+}
+.comment {
+  border-left-style: outset;
+  margin: 0;
+  font-size: 20px;
+  width: 300px
   
 }
 
