@@ -133,9 +133,10 @@ export default class Recipe extends Component {
                             )
                         })}
                     </div>
-                    <div class='clap'>{this.state.recipe.claps.length}
+                    <div class='clap'>
                         <button onClick={this.onSubmitClap} onChange={this.onChangeClap}>
                         <img class='clap-image' src="https://img.icons8.com/ios/20/000000/applause.png"/></button>
+                        {this.state.recipe.claps.length}
                     </div>
                     <div>
                         {this.state.formView === true ? null :

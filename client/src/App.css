@@ -5,6 +5,7 @@
 }
 body {
   background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+  
 }
 .App-logo {
   height: 40vmin;
@@ -47,8 +48,9 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* margin: auto;
-  padding: auto;   */
+  width: 100%;
+  margin: auto;
+  padding: auto;  
 }
 
 .ingredient {
@@ -60,12 +62,14 @@ img {
   
 }
 .direction {
-  margin: 10px 400px;
+  margin: 10px;
   padding: 0px;
   border-right-style: inset;
   border-left-style: outset;
   border-color: rgb(137, 137, 165);
   font-size: 20px;
+  min-width: 300px;
+  max-width: 800px;
 
 
 }
@@ -79,8 +83,9 @@ img {
 }
 .comment {
   border-left-style: outset;
-  margin: 0 0 60px 0;
+  margin: 0;
   font-size: 18px;
+  width: 500px;
 }
 
 nav {
@@ -98,11 +103,12 @@ link:hover{
   background-color: rgb(21, 21, 136);
 }
 .comment-container {
-  margin: 0 0 0 300px;
+  margin: 0 0 0 500px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column-reverse;
+
   
 }
 
