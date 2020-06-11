@@ -112,3 +112,11 @@ form {
   padding: 0px;
 }
 
+.clap {
+  font-size: 12px;
+}
+
+.clap-image:hover {
+  background-color:grey;
+}
+
