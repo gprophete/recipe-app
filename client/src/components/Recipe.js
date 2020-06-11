@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
 export default class Recipe extends Component {
 
     state = {
@@ -19,7 +20,11 @@ export default class Recipe extends Component {
             name: '',
             email: '',
             recipe: this.props.match.params.recipeId
-        }
+        },
+        newClap: {
+            recipe: this.props.match.params.recipeId
+        },
+        formView: false,
 
     }
 
@@ -55,6 +60,28 @@ export default class Recipe extends Component {
         } catch (error) {
             console.log('Failed to post clap')
         }
+    }
+    onChangeClap = (evt) => {
+        const newState = { ...this.state }
+        newState.newClap[evt.target.name] = evt.target.value
+        this.setState(newState)
+
+    }
+    onSubmitClap = async (evt) => {
+        evt.preventDefault()
+        try {
+            await axios.post(`/api/v1/claps/`, this.state.newClap)
+            this.getSingleRecipe()
+        } catch (error) {
+            console.log('Failed to clap')
+        }
+
+    }
+
+    toggleView = () => {
+        const formView = !this.state.formView
+        this.setState({ formView: formView })
+        console.log('formView', formView)
     }
 
 
@@ -93,36 +120,49 @@ export default class Recipe extends Component {
                         })}
                     </div>
                 </div>
+                <div class='comment-container'>
+                    <div class='comment'>
+                        {this.state.recipe.comments.map((comment) => {
+                            return (
+                                <div>
+                                    <div class='name'>name:{comment.name}</div>
+                                    <div>Comment:{comment.content}</div>
+                                    
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div class='clap'>Claps:{this.state.recipe.claps.length}
+                        <button onClick={this.onSubmitClap} onChange={this.onChangeClap}>
+                            Clap</button>
+                    </div>
+                    <div>
+                        {this.state.formView === true ? null :
+                            <button onClick={this.toggleView}>
+                                Comment
+                        </button>}
 
-                <div class='comment'>
-                    {this.state.recipe.comments.map((comment) => {
-                        return (
-                            <div>
-                                <div>Comment:{comment.content}</div>
-                                <div>name:{comment.name}</div>
-                            </div>
-                        )
-                    })}
-                </div>
-                <div class='clap'>Claps:{this.state.recipe.claps.length}</div>
-                <div>
-                    <form onSubmit={this.onClick}>
-                        <textarea 
-                            type='text'
-                            name='content'
-                            onChange={this.onChange} />
-                        <div>
-                            <label>Name</label>
-                            <input type='text'
-                                name='name'
-                                onChange={this.onChange} />
-                            <label>Email</label>
-                            <input type='text'
-                                name='email'
-                                onChange={this.onChange} />
-                        </div>
-                        <input type='submit' value='add comment' />
-                    </form>
+                        {this.state.formView === true
+                            ? <form onSubmit={this.onClick}>
+                                <textarea
+                                    type='text'
+                                    name='content'
+                                    onChange={this.onChange} />
+                                <div>
+                                    <label>Name</label>
+                                    <input type='text'
+                                        name='name'
+                                        onChange={this.onChange} />
+                                    <label>Email</label>
+                                    <input type='text'
+                                        name='email'
+                                        onChange={this.onChange} />
+                                </div>
+                                <input type='submit' value='add comment' />
+                            </form>
+                            : null
+                        }
+                    </div>
                 </div>
 
 
