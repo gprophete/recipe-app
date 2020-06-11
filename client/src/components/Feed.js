@@ -29,23 +29,25 @@ export default class Feed extends Component {
                 {this.state.recipes.map((recipe) => {
                     return (
                         <div>
-                            <Link to={`/recipe/${recipe.id}/`}>
-                                <h3>{recipe.title}</h3>
+
+                            <h3>{recipe.title}</h3>
+                            <Link to={`/recipe/${recipe.id}/`} class='link'>
                                 <img src={recipe.image_url} />
-                                <p>{recipe.tags}</p>
-                                <div>
-
-                                    {recipe.comments.map((comment) => {
-                                        return (
-                                            <div>
-                                                Comment: {comment.content}
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-
-                                <div>Clap:{recipe.claps.length}</div>
                             </Link>
+                            <p>{recipe.tags}</p>
+                            <div>
+
+                                {recipe.comments.map((comment) => {
+                                    return (
+                                        <div>
+                                            Comment: {comment.content}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div>Clap:{recipe.claps.length}</div>
+
                         </div>
 
                     )
