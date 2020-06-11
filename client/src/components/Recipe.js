@@ -84,7 +84,7 @@ export default class Recipe extends Component {
                         )
                     })}
                 </div>
-                <div>Claps:{this.state.recipe.claps.length}</div>
+                <div class='clap'>Claps:{this.state.recipe.claps.length}</div>
 
             </div >
         )

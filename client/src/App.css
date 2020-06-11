@@ -1,8 +1,12 @@
 .App {
   text-align: center;
   font-family: 'Bellota', cursive;;
+  
 }
-
+body {
+  background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+  background-blend-mode: saturation;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -105,3 +109,4 @@ nav a{
 link:hover{
   background-color: rgb(21, 21, 136);
 }
+
