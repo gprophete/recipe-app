@@ -12,12 +12,14 @@ export default class Recipe extends Component {
             claps: [],
             ingredients: [],
             directions: []
+
         },
-
-
-
-
-
+        newComment: {
+            content: '',
+            name: '',
+            email: '',
+            recipe: this.props.match.params.recipeId
+        }
 
     }
 
@@ -40,8 +42,25 @@ export default class Recipe extends Component {
 
     }
 
+    onChange = (evt) => {
+        const newState = { ...this.state }
+        newState.newComment[evt.target.name] = evt.target.value
+        this.setState(newState)
+    }
+    onClick = async (evt) => {
+        evt.preventDefault()
+        try {
+            await axios.post(`/api/v1/comments/`, this.state.newComment)
+            this.getSingleRecipe()
+        } catch (error) {
+            console.log('Failed to post clap')
+        }
+    }
+
+
 
     render() {
+        const recipeId = this.props.match.params.recipeId;
         return (
             <div>
                 <h2>Let's get cooking</h2>
@@ -55,7 +74,7 @@ export default class Recipe extends Component {
                             return (
                                 <div>
                                     <div class='ingredient'>{ingredient.items}</div>
-                                    
+
                                 </div>
                             )
                         })}
@@ -67,24 +86,45 @@ export default class Recipe extends Component {
 
                                     <div class='direction'>{direction.steps}</div>
                                     <div class='time'>Time:{direction.prep_time}</div>
-                                    <div class ='serving'>Servings:{direction.servings}</div>
+                                    <div class='serving'>Servings:{direction.servings}</div>
 
                                 </div>
                             )
                         })}
                     </div>
                 </div>
+
                 <div class='comment'>
                     {this.state.recipe.comments.map((comment) => {
                         return (
                             <div>
-                                Comment:{comment.content}
+                                <div>Comment:{comment.content}</div>
                                 <div>name:{comment.name}</div>
                             </div>
                         )
                     })}
                 </div>
                 <div class='clap'>Claps:{this.state.recipe.claps.length}</div>
+                <div>
+                    <form onSubmit={this.onClick}>
+                        <textarea 
+                            type='text'
+                            name='content'
+                            onChange={this.onChange} />
+                        <div>
+                            <label>Name</label>
+                            <input type='text'
+                                name='name'
+                                onChange={this.onChange} />
+                            <label>Email</label>
+                            <input type='text'
+                                name='email'
+                                onChange={this.onChange} />
+                        </div>
+                        <input type='submit' value='add comment' />
+                    </form>
+                </div>
+
 
             </div >
         )

@@ -32,7 +32,7 @@ export default class Feed extends Component {
 
                             <h3>{recipe.title}</h3>
                             <Link to={`/recipe/${recipe.id}/`} class='link'>
-                                <img src={recipe.image_url} width='500'/>
+                                <img src={recipe.image_url} width='300'/>
                             </Link>
                             <p>{recipe.tags}</p>
                             <div>

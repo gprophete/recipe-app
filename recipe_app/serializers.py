@@ -28,11 +28,11 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     comments = CommentSerializer(
         many=True,
-        read_only=True
+        read_only=False
     )
     claps = ClapSerializer(
         many=True,
-        read_only=True
+        read_only=False
     )
     directions = DirectionSerializer(
         many=True,
@@ -58,10 +58,10 @@ class RecipeSerializer(serializers.ModelSerializer):
 class FeedSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(
         many= True,
-        read_only=True)
+        read_only=False)
     claps = ClapSerializer(
         many= True,
-        read_only=True)
+        read_only=False)
     class Meta:
         model = Recipe
         fields = (
