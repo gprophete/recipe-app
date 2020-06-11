@@ -125,9 +125,9 @@ export default class Recipe extends Component {
                         {this.state.recipe.comments.map((comment) => {
                             return (
                                 <div>
-                                    <div class='name'>name:{comment.name}</div>
+                                    <div class='comment-label'>name:{comment.name}</div>
                                     <label class='comment-label'>Comment</label>
-                                    <div>{comment.content}</div>
+                                    <div class='comment-content'>{comment.content}</div>
                                     
                                 </div>
                             )

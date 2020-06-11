@@ -78,8 +78,8 @@ img {
   font-size: 24px;
 }
 .comment {
-  border-style: outset;
-  margin: 0 50px 60px 0;
+  border-left-style: outset;
+  margin: 0 0 60px 0;
   font-size: 18px;
 }
 
@@ -98,11 +98,19 @@ link:hover{
   background-color: rgb(21, 21, 136);
 }
 .comment-container {
-  margin: auto;
+  margin: 0 0 0 300px;
   display: flex;
   justify-content: center;
- flex-direction: column-reverse;
+  align-items: flex-start;
+  flex-direction: column-reverse;
   
+}
+
+.comment-label {
+  font-size: 12px;
+}
+.comment-content {
+  font-size: 18px;
 }
 button {
   margin: 0 0 30px 0;
@@ -119,4 +127,6 @@ form {
 .clap-image:hover {
   background-color:grey;
 }
+
+
 
