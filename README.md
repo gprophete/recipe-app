@@ -9,6 +9,10 @@ The purpose of this webapp is to provide a database of traditional haitian recip
 * React
 * Javascript
 * CSS
+  
+ ## Link to deployed app 
+
+[KreyolRecipe](https://kreyol-recipe.herokuapp.com/)
 
 ## Wireframe
 
