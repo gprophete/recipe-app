@@ -12,10 +12,10 @@ The purpose of this webapp is to provide a database of traditional haitian recip
 
 ## Wireframe
 
-![Wireframe](haitian-recipe.png)
+Format: ![Wireframe](haitian-recipe.png)
 
 ## ERD
 
-![ERD](haitian-recipes-erd.png)
+Format: ![ERD](haitian-recipes-erd.png)
 
 
