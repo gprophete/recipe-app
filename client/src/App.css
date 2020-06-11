@@ -49,31 +49,44 @@
 img {
   border-radius: 50%;
 }
-/* .container {
+.container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin: 50px;
+  margin: auto;
+  padding: auto;
   
-} */
+  
+}
 .ingredient {
-  margin-bottom: 30px;
+  margin: 0 300px 0 300px;
+  padding: 20px;
+  /* border-style: inset; */
+  font-size: 24px;
+
   
 }
 .direction {
-  margin: auto;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  word-wrap: break-word;
-  border-style: inset;
+  margin: 10px 400px;
+  padding: 0px;
+  border-right-style: inset;
+  border-left-style: outset;
   border-color: rgb(137, 137, 165);
+  font-size: 20px;
+
 
 }
 .time {
   margin: 20px;
+  font-size: 24px;
 }
 .serving {
   margin: 20px;
+  font-size: 24px;
+}
+.comment {
+  border-style: outset;
+  margin: 0 500px;
+  font-size: 18px;
 }

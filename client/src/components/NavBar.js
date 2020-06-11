@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-export default class Comments extends Component {
-
-
+export default class NavBar extends Component {
     render() {
         return (
             <div>
-                
+                <Link to="/">Home</Link>
             </div>
         )
     }

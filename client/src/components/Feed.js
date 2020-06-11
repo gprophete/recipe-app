@@ -30,21 +30,21 @@ export default class Feed extends Component {
                     return (
                         <div>
                             <Link to={`/recipe/${recipe.id}/`}>
-                            <h3>{recipe.title}</h3>
-                            <img src={recipe.image_url}/>
-                            <p>{recipe.tags}</p>
-                            <div>
-                                
-                                {recipe.comments.map((comment)=>{
-                                    return(
-                                        <div>
-                                            Comment: {comment.content}
-                                        </div>
-                                    )
-                                })}
-                            </div>
+                                <h3>{recipe.title}</h3>
+                                <img src={recipe.image_url} />
+                                <p>{recipe.tags}</p>
+                                <div>
 
-                            <div>Clap:{recipe.claps.length}</div>
+                                    {recipe.comments.map((comment) => {
+                                        return (
+                                            <div>
+                                                Comment: {comment.content}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+
+                                <div>Clap:{recipe.claps.length}</div>
                             </Link>
                         </div>
 
