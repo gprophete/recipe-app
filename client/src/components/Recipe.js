@@ -143,7 +143,7 @@ export default class Recipe extends Component {
                     <div>
                         {this.state.formView === true ? null :
                             <button onClick={this.toggleView}>
-                                Comment
+                                <i class="far fa-comment"></i>
                         </button>}
 
                         {this.state.formView === true

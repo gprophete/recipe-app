@@ -97,16 +97,17 @@ link:hover{
   background-color: rgb(21, 21, 136);
 }
 .comment-container {
-  margin-left: 120px;
+  margin: 50px 50px 50px 120px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: flex-start;
+  flex-direction: column-reverse;
+  border-left-style: outset;
 }
 .comment {
-  border-left-style: outset;
   margin: 0;
   font-size: 20px;
-  width: 300px
+  
   
 }
 
@@ -114,11 +115,9 @@ link:hover{
   font-size: 12px;
 }
 .comment-content {
-  font-size: 18px;
+  font-size: 20px;
 }
-button {
-  margin: 0 0 30px 0;
-}
+
 form {
   margin: 0 0 50px 0;
   padding: 0px;
@@ -128,9 +127,15 @@ form {
   font-size: 12px;
 }
 
+
 .clap-image:hover {
   background-color:grey;
+  
 }
+i {
+  margin: 5px;
+}
+
 
 
 
