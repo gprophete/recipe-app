@@ -40,7 +40,8 @@ export default class Feed extends Component {
                                 {recipe.comments.map((comment) => {
                                     return (
                                         <div>
-                                            Comment: {comment.content}
+                                            <label class='comment-label'>Comment:</label>
+                                            <p class='comment-content'>{comment.content}</p>
                                         </div>
                                     )
                                 })}
