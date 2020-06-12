@@ -127,24 +127,24 @@ export default class Recipe extends Component {
                                 <div>
                                     <div class='comment-label'>name:{comment.name}</div>
                                     <div>
-                                    <label class='comment-label'>Comment:</label>
-                                    <span class='comment-content'>{comment.content}</span>
+                                        <label class='comment-label'>Comment:</label>
+                                        <span class='comment-content'>{comment.content}</span>
                                     </div>
-                                    
+
                                 </div>
                             )
                         })}
                     </div>
                     <div class='clap'>
                         <button onClick={this.onSubmitClap} onChange={this.onChangeClap}>
-                        <img class='clap-image' src="https://img.icons8.com/ios/20/000000/applause.png"/></button>
+                            <img class='clap-image' src="https://img.icons8.com/ios/20/000000/applause.png" /></button>
                         {this.state.recipe.claps.length}
                     </div>
                     <div>
                         {this.state.formView === true ? null :
                             <button onClick={this.toggleView}>
                                 <i class="far fa-comment"></i>
-                        </button>}
+                            </button>}
 
                         {this.state.formView === true
                             ? <form onSubmit={this.onClick}>
