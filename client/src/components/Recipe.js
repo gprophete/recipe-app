@@ -126,8 +126,10 @@ export default class Recipe extends Component {
                             return (
                                 <div>
                                     <div class='comment-label'>name:{comment.name}</div>
-                                    <label class='comment-label'>Comment</label>
-                                    <div class='comment-content'>{comment.content}</div>
+                                    <div>
+                                    <label class='comment-label'>Comment:</label>
+                                    <span class='comment-content'>{comment.content}</span>
+                                    </div>
                                     
                                 </div>
                             )
