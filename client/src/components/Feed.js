@@ -28,11 +28,11 @@ export default class Feed extends Component {
             <div>
                 {this.state.recipes.map((recipe) => {
                     return (
-                        <div>
+                        <div class='feed'>
 
                             <h3>{recipe.title}</h3>
                             <Link to={`/recipe/${recipe.id}/`} class='link'>
-                                <img src={recipe.image_url} width='300'/>
+                                <img src={recipe.image_url} width='300' />
                             </Link>
                             <p>{recipe.tags}</p>
                             <div>
@@ -46,7 +46,9 @@ export default class Feed extends Component {
                                 })}
                             </div>
 
-                            <div>Clap:{recipe.claps.length}</div>
+                            <div><img class='clap-image'
+                                src="https://img.icons8.com/ios/20/000000/applause.png" />
+                                {recipe.claps.length}</div>
 
                         </div>
 
