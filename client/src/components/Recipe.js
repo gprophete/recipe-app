@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 
 export default class Recipe extends Component {
@@ -25,6 +26,7 @@ export default class Recipe extends Component {
             recipe: this.props.match.params.recipeId
         },
         formView: false,
+        redirect: false,
 
     }
 
@@ -60,6 +62,7 @@ export default class Recipe extends Component {
         } catch (error) {
             console.log('Failed to post clap')
         }
+        this.toggleView()
     }
     onChangeClap = (evt) => {
         const newState = { ...this.state }
@@ -87,7 +90,7 @@ export default class Recipe extends Component {
 
 
     render() {
-        const recipeId = this.props.match.params.recipeId;
+        // const recipeId = this.props.match.params.recipeId;
         return (
             <div>
                 <h2>Let's get cooking</h2>
@@ -148,6 +151,7 @@ export default class Recipe extends Component {
 
                         {this.state.formView === true
                             ? <form onSubmit={this.onClick}>
+                                <label>Comment</label>
                                 <textarea
                                     type='text'
                                     name='content'
@@ -162,7 +166,7 @@ export default class Recipe extends Component {
                                         name='email'
                                         onChange={this.onChange} />
                                 </div>
-                                <input type='submit' value='add comment' />
+                                <input type='submit' value='add comment'/>
                             </form>
                             : null
                         }
