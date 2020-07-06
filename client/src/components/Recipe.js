@@ -98,24 +98,24 @@ export default class Recipe extends Component {
                     <h3>{this.state.recipe.title}</h3>
                     <img src={this.state.recipe.image_url} width='200' />
                 </div>
-                <div class='container'>
-                    <div >
+                <div class = 'direction_container'>
+                    <div>
                         {this.state.recipe.ingredients.map((ingredient) => {
                             return (
-                                <div>
-                                    <div class='ingredient'>{ingredient.items}</div>
+                                <ul>
+                                    <li class='ingredient'>{ingredient.items}</li>
 
-                                </div>
+                                </ul>
                             )
                         })}
                     </div>
-                    <div >
+                    <div>
                         {this.state.recipe.directions.map((direction) => {
                             return (
                                 <div>
 
-                                    <div class='direction'>{direction.steps}</div>
-                                    <div class='time'>Time:{direction.prep_time}</div>
+                                    <p class='direction'>{direction.steps}</p>
+                                    <span class='time'>Time:{direction.prep_time}</span>
                                     <div class='serving'>Servings:{direction.servings}</div>
 
                                 </div>
