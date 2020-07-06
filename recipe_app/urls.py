@@ -9,6 +9,8 @@ router.register('ingredients', views.IngredientView)
 router.register('comments', views.CommentView)
 router.register('claps', views.ClapView)
 router.register('feed', views.FeedView)
+router.register('servingTime', views.ServingTimeView)
+
 
 
 urlpatterns = [

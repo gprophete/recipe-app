@@ -5,13 +5,16 @@ from .serializers import DirectionSerializer, \
     CommentSerializer, \
     ClapSerializer, \
     IngredientSerializer, \
-    FeedSerializer
+    FeedSerializer, \
+    ServingTimeSerializer
 
 from .models import Recipe, \
     Direction, \
     Ingredient, \
     Clap, \
-    Comment
+    Comment, \
+    ServingTime
+
 
 class RecipeView(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
@@ -25,6 +28,9 @@ class IngredientView(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
 
+class ServingTimeView(viewsets.ModelViewSet):
+    queryset = ServingTime.objects.all()
+    serializer_class = ServingTimeSerializer
 
 class ClapView(viewsets.ModelViewSet):
     queryset = Clap.objects.all()

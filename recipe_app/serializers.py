@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Recipe, Ingredient, Direction, Comment, Clap
+from .models import Recipe, Ingredient, Direction, Comment, Clap, ServingTime
 
 
 class DirectionSerializer(serializers.ModelSerializer):
@@ -12,6 +12,11 @@ class DirectionSerializer(serializers.ModelSerializer):
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
+        fields = '__all__'
+
+class ServingTimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ServingTime
         fields = '__all__'
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -42,6 +47,10 @@ class RecipeSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
+    servingTimes = ServingTimeSerializer(
+        many=True,
+        read_only=True
+    )
 
     class Meta:
         model = Recipe
@@ -53,6 +62,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             'claps',
             'directions',
             'ingredients',
+            'servingTimes',
         )
 
 class FeedSerializer(serializers.ModelSerializer):

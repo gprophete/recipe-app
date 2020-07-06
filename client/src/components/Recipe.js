@@ -13,7 +13,8 @@ export default class Recipe extends Component {
             comments: [],
             claps: [],
             ingredients: [],
-            directions: []
+            directions: [],
+            servingTimes:[]
 
         },
         newComment: {
@@ -115,8 +116,17 @@ export default class Recipe extends Component {
                                 <div>
 
                                     <p class='direction'>{direction.steps}</p>
-                                    <span class='time'>Time:{direction.prep_time}</span>
-                                    <div class='serving'>Servings:{direction.servings}</div>
+
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div>
+                        {this.state.recipe.directions.map((servingTime) => {
+                            return (
+                                <div>
+                                    <span class='time'>Time:{servingTime.prep_time}</span>
+                                    <div class='serving'>Servings:{servingTime.servings}</div>
 
                                 </div>
                             )

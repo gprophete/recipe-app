@@ -18,11 +18,17 @@ class Ingredient(models.Model):
 
 class Direction(models.Model):
     steps = models.TextField()
-    prep_time = models.CharField(max_length=100)
-    servings = models.CharField(max_length=100)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='directions'
     )
+
+class ServingTime(models.Model):
+    prep_time = models.CharField(max_length=100)
+    servings = models.CharField(max_length=100)
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name='servingTimes'
+    )
+
 
 
 class Comment(models.Model):
