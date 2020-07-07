@@ -14,13 +14,12 @@ export default class Recipe extends Component {
             claps: [],
             ingredients: [],
             directions: [],
-            servingTimes:[]
+            servingTimes: []
 
         },
         newComment: {
             content: '',
             name: '',
-            email: '',
             recipe: this.props.match.params.recipeId
         },
         newClap: {
@@ -99,7 +98,7 @@ export default class Recipe extends Component {
                     <h3>{this.state.recipe.title}</h3>
                     <img src={this.state.recipe.image_url} width='200' />
                 </div>
-                <div class = 'direction_container'>
+                <div class='direction_container'>
                     <div>
                         {this.state.recipe.ingredients.map((ingredient) => {
                             return (
@@ -122,10 +121,10 @@ export default class Recipe extends Component {
                         })}
                     </div>
                     <div>
-                        {this.state.recipe.directions.map((servingTime) => {
+                        {this.state.recipe.servingTimes.map((servingTime) => {
                             return (
                                 <div>
-                                    <span class='time'>Time:{servingTime.prep_time}</span>
+                                    <div class='time'>Time:{servingTime.prep_time}</div>
                                     <div class='serving'>Servings:{servingTime.servings}</div>
 
                                 </div>
@@ -133,53 +132,48 @@ export default class Recipe extends Component {
                         })}
                     </div>
                 </div>
-                <div class='comment-container'>
-                    <div class='comment'>
-                        {this.state.recipe.comments.map((comment) => {
-                            return (
-                                <div>
-                                    <div class='comment-label'>name:{comment.name}</div>
-                                    <div>
-                                        <label class='comment-label'>Comment:</label>
-                                        <span class='comment-content'>{comment.content}</span>
-                                    </div>
 
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div class='clap'>
-                        <button onClick={this.onSubmitClap} onChange={this.onChangeClap}>
-                            <img class='clap-image' src="https://img.icons8.com/ios/20/000000/applause.png" /></button>
-                        {this.state.recipe.claps.length}
-                    </div>
-                    <div>
-                        {this.state.formView === true ? null :
-                            <button onClick={this.toggleView}>
-                                <i class="far fa-comment"></i>
-                            </button>}
+                <div class='clap'>
+                    <button onClick={this.onSubmitClap} onChange={this.onChangeClap}>
+                        <img class='clap-image' src="https://img.icons8.com/ios/20/000000/applause.png" /></button>
+                    {this.state.recipe.claps.length}
+                </div>
+                <div>
+                    {this.state.formView === true ? null :
+                        <button onClick={this.toggleView}>
+                            <i class="far fa-comment"></i>
+                        </button>}
 
-                        {this.state.formView === true
-                            ? <form onSubmit={this.onClick}>
-                                <label>Comment</label>
-                                <textarea
-                                    type='text'
-                                    name='content'
+                    {this.state.formView === true
+                        ? <form onSubmit={this.onClick}>
+                            <label>Comment</label>
+                            <textarea
+                                type='text'
+                                name='content'
+                                onChange={this.onChange} />
+                            <div>
+                                <label>Name</label>
+                                <input type='text'
+                                    name='name'
                                     onChange={this.onChange} />
-                                <div>
-                                    <label>Name</label>
-                                    <input type='text'
-                                        name='name'
-                                        onChange={this.onChange} />
-                                    <label>Email</label>
-                                    <input type='text'
-                                        name='email'
-                                        onChange={this.onChange} />
-                                </div>
-                                <input type='submit' value='add comment'/>
-                            </form>
-                            : null
-                        }
+                            </div>
+                            <input type='submit' value='add comment' />
+                        </form>
+                        : null
+                    }
+                    <div class='comment-container'>
+                        <div class='comment'>
+                            {this.state.recipe.comments.map((comment) => {
+                                return (
+                                    <div>
+                                        <h6 class='comment-label'>name:{comment.name}</h6>
+                                        <p class='comment-content'>{comment.content}</p>
+
+
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
 

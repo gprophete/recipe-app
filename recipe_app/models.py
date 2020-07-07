@@ -34,7 +34,6 @@ class ServingTime(models.Model):
 class Comment(models.Model):
     content = models.TextField()
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
     recipe = models.ForeignKey(
          Recipe, on_delete=models.CASCADE, related_name='comments'
     )

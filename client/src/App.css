@@ -54,39 +54,39 @@ link:hover{
 }
 .comment-container {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column-reverse;
-  border-left-style: outset;
+  justify-content: center;
+  flex-direction: row;
+  border: black;
+  margin:10px;
+  padding-left: 10px;
 }
 .comment {
-  font-size: 20px;
+  font-size: 36px;
   
 }
-
-.comment-label {
-  font-size: 12px;
+h6 {
+  font-size: 14px;
+  margin-left: -30px;
+  margin-bottom: -40px;
 }
-.comment-content {
-  font-size: 20px;
+
+button {
+  margin-top: 10px;
 }
 
 form {
-  margin: 0 0 50px 0;
   padding: 0px;
 }
 
 .clap {
   font-size: 12px;
+  margin: 10px
 }
 
 
 .clap-image:hover {
   background-color:grey;
   
-}
-i {
-  margin: 5px;
 }
 
 textarea {
@@ -104,22 +104,24 @@ textarea {
 
 .direction_container {
   display: flex;
-  align-content: space-around;
-  margin-right: 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 50px;
 }
 
 .direction {
-  margin-left: 100px;
-  margin-bottom: 40px;
-  margin-right: 0;
+  width: 600px;
+  font-size: 24px;
 }
 
-/* .time {
-  margin-top: 200px;
+.time {
+  margin-top: 20px;
   font-size: 24px;
-} */
-/* .serving {
-  margin: 20px;
+}
+.serving {
   font-size: 24px;
-} */
+}
 
+li{
+  font-size: 24px;
+}
